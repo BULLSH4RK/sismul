@@ -58,7 +58,7 @@ export function createPlaylist(listEl, { onSelect } = {}) {
     });
     if (!tracks.length) {
       const empty = document.createElement("li");
-      empty.className = "track";
+      empty.className = "track track--empty";
       empty.textContent = "Playlist kosong.";
       listEl.append(empty);
     }
@@ -74,11 +74,21 @@ export function createPlaylist(listEl, { onSelect } = {}) {
   // Saring berdasarkan judul/artis.
   function filter(query) {
     const q = query.trim().toLowerCase();
-    items.forEach((li, i) => {
+    let visible = 0;
+    items.forEach((li) => {
       const t = li.querySelector(".track__title").textContent.toLowerCase();
       const a = li.querySelector(".track__artist").textContent.toLowerCase();
-      li.style.display = !q || t.includes(q) || a.includes(q) ? "" : "none";
+      const show = !q || t.includes(q) || a.includes(q);
+      li.style.display = show ? "" : "none";
+      if (show) visible++;
     });
+    listEl.querySelector(".track--empty")?.remove();
+    if (!visible) {
+      const empty = document.createElement("li");
+      empty.className = "track track--empty";
+      empty.textContent = "Tidak ada lagu yang cocok.";
+      listEl.append(empty);
+    }
   }
 
   // Perbarui durasi satu baris setelah metadata dimuat.

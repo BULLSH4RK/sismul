@@ -48,9 +48,10 @@ export function createVisualizer(audioEl, canvasEl) {
     const bars = 48;
     const step = Math.floor(data.length / bars);
     const gap = W / bars;
+    const light = document.documentElement.dataset.theme === "light";
     const grad = c.createLinearGradient(0, H, 0, 0);
-    grad.addColorStop(0, "#7c5cff");
-    grad.addColorStop(1, "#ff5c8a");
+    grad.addColorStop(0, "#ff6d1f");
+    grad.addColorStop(1, light ? "#ff8f4c" : "#dfd0b8");
     c.fillStyle = grad;
     for (let i = 0; i < bars; i++) {
       const v = data[i * step] / 255;

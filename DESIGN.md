@@ -6,24 +6,28 @@ Modern, bersih, bernuansa gelap dengan aksen gradasi. Fokus pada cover album dan
 ## 2. Design Tokens (CSS Variables)
 ```css
 :root {
-  --bg: #0f0f1a;
-  --surface: #1a1a2e;
-  --surface-hover: #24243d;
-  --text: #f1f1f6;
-  --text-muted: #9a9ab5;
-  --accent: #7c5cff;
-  --accent-2: #ff5c8a;
+  --bg: #222831;
+  --surface: #393e46;
+  --surface-hover: #404a5a;
+  --text: #dfd0b8;
+  --text-muted: #948979;
+  --accent: #ff6d1f;
+  --accent-2: #dfd0b8;
   --gradient: linear-gradient(135deg, var(--accent), var(--accent-2));
   --radius: 16px;
-  --shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  --shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
   --font: "Poppins", system-ui, sans-serif;
 }
 [data-theme="light"] {
-  --bg: #f4f4fb;
+  --bg: #faf3e1;
   --surface: #ffffff;
-  --surface-hover: #ececf8;
-  --text: #1a1a2e;
-  --text-muted: #6b6b85;
+  --surface-hover: #f5e7c6;
+  --text: #222222;
+  --text-muted: #6e6658;
+  --accent: #ff6d1f;
+  --accent-2: #ff8f4c;
+  --gradient: linear-gradient(135deg, var(--accent), var(--accent-2));
+  --shadow: 0 10px 30px rgba(34, 34, 34, 0.12);
 }
 ```
 

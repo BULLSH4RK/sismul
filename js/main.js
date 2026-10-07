@@ -35,9 +35,10 @@ function showToast(message) {
   toastTimer = setTimeout(() => toast.classList.remove("toast--show"), 3000);
 }
 
-// Tema: baca simpanan, default gelap.
+// Tema: pakai simpanan bila ada, hormati atribut HTML bila belum ada.
 try {
-  document.documentElement.dataset.theme = localStorage.getItem("sismul-theme") || "dark";
+  const saved = localStorage.getItem("sismul-theme");
+  if (saved) document.documentElement.dataset.theme = saved;
 } catch {}
 themeToggle.addEventListener("click", () => {
   const next = document.documentElement.dataset.theme === "light" ? "dark" : "light";

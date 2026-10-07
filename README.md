@@ -38,6 +38,7 @@ Seluruh audio dan cover dibuat sendiri dengan skrip lokal, bebas dipakai untuk t
 - `assets/audio/track1–5.mp3` — komposisi lo-fi sintesis (pad chord + kick/hat + crackle vinyl), dibuat via Python `wave` + `ffmpeg` (MP3 128kbps). Sekitar 25–28 detik per lagu.
 - `assets/images/cover1–5.jpg` — gradasi abstrak 500×500, dibuat via filter `gradients` ffmpeg.
 - Font Poppins via Google Fonts. Ikon SVG inline buatan sendiri.
+- Palet warna dari Color Hunt: light [FAF3E1 / F5E7C6 / FF6D1F / 222222](https://colorhunt.co/palette/faf3e1f5e7c6ff6d1f222222), dark [222831 / 393E46 / 948979 / DFD0B8](https://colorhunt.co/palette/222831393e46948979dfd0b8). `text-muted` light disesuaikan ke `#6e6658` agar kontras 4.5:1.
 
 Asumsi: durasi pendek disengaja agar repo ringan dan mudah dipresentasikan; ganti file di `assets/` + `data/playlist.js` untuk lagu penuh.
 
