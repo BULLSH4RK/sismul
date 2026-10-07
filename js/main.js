@@ -25,6 +25,8 @@ const repeatBtn = $("repeatBtn");
 const searchEl = $("search");
 const themeToggle = $("themeToggle");
 const toast = $("toast");
+const headerStatus = $("headerStatus");
+const queueCount = $("queueCount");
 
 let toastTimer;
 // Tampilkan pesan singkat 3 detik.
@@ -88,6 +90,7 @@ function renderState(state) {
   iconPlay.hidden = playing;
   iconPause.hidden = !playing;
   playBtn.setAttribute("aria-label", playing ? "Jeda" : "Putar");
+  if (headerStatus) headerStatus.textContent = playing ? "Now Playing" : "Paused";
   shuffleBtn.setAttribute("aria-pressed", String(state.isShuffle));
   repeatBtn.setAttribute("aria-pressed", String(state.repeatMode !== "off"));
   repeatBtn.setAttribute("aria-label", `Ulangi: ${state.repeatMode}`);
@@ -156,6 +159,7 @@ document.addEventListener("keydown", (e) => {
 });
 
 // Render awal. Jika playlist kosong, nonaktifkan kontrol.
+if (queueCount) queueCount.textContent = `${tracks.length} tracks`;
 list.render(tracks);
 const hasTracks = tracks.length > 0;
 playBtn.disabled = !hasTracks;

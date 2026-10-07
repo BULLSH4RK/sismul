@@ -13,6 +13,10 @@ export function createPlaylist(listEl, { onSelect } = {}) {
     li.setAttribute("role", "button");
     li.setAttribute("aria-label", `Putar ${track.title} oleh ${track.artist}`);
 
+    const num = document.createElement("span");
+    num.className = "track__num";
+    num.textContent = String(index + 1).padStart(2, "0");
+
     const img = document.createElement("img");
     img.className = "track__thumb";
     img.src = track.cover;
@@ -40,7 +44,7 @@ export function createPlaylist(listEl, { onSelect } = {}) {
     dur.className = "track__dur";
     dur.textContent = track.duration ? formatTime(track.duration) : "--:--";
 
-    li.append(img, meta, eq, dur);
+    li.append(num, img, meta, eq, dur);
     li.addEventListener("click", () => onSelect?.(index));
     li.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onSelect?.(index); }
